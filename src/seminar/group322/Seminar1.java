@@ -35,6 +35,36 @@ public class Seminar1 {
         return numbers;
     }
 
+    private static List<Integer> longestOddSequence(List<Integer> numbers) {
+        int maxStart = -1;
+        int maxEnd = -1;
+
+        int currentStart = 0;
+        int currentEnd = 0;
+
+        int index = 0;
+        while (index < numbers.size()) {
+            if (numbers.get(index) % 2 == 0) {
+                currentStart = index + 1;
+            } else {
+                currentEnd = index + 1;
+                if (currentEnd - currentStart > maxEnd - maxStart) {
+                    maxStart = currentStart;
+                    maxEnd = currentEnd;
+                }
+            }
+            index += 1;
+        }
+
+        List<Integer> result = new ArrayList<>();
+        for (int i = maxStart; i < maxEnd; i++) {
+            result.add(numbers.get(i));
+        }
+//        System.out.println(maxStart);
+//        System.out.println(maxEnd);
+        return result;
+    }
+
     private static void printMenu() {
         System.out.println("1. Afisati minimul din lista de numere");
         System.out.println("2. Eliminati numerele prime din lista");
@@ -53,12 +83,18 @@ public class Seminar1 {
 
             switch (line) {
                 case "1":
-                    continue;
+                    continue; // trece la urmatoarea iteratie a celei mai apropiate bucle
+                    // innermost loop
                 case "2":
                     continue;
                 case "3":
                     continue;
                 case "4":
+                    List<Integer> result = longestOddSequence(numbers);
+                    for (Integer num : result) {
+                        System.out.print(num + " ");
+                    }
+                    System.out.println();
                     continue;
                 case "5":
                     System.out.println("Lista de numere:");
@@ -66,6 +102,7 @@ public class Seminar1 {
                         System.out.print(num + " ");
                     }
                     System.out.println();
+                    continue;
                 case "0":
                     return;
                 default:
