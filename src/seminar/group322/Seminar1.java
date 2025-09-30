@@ -15,4 +15,13 @@ package seminar.group322;
 */
 
 public class Seminar1 {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+        System.out.println(args.length);
+
+        // enhanced for loop
+        for (String arg : args) {
+            System.out.println(arg);
+        }
+    }
 }
