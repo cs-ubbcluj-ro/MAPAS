@@ -8,9 +8,7 @@ package seminar.group323;
     Scrieti o aplicatie cu un meniu care are urmatoarele functionalitati:
         1. Afisati minimul din lista de numere.
         2. Eliminati numerele prime din lista.
-        3. Cautare numar dat de la tastatura
-        3. Gasiti cea mai lunga secventa de numere impare din lista.
-        4. Iesire
+        0. Iesire
 */
 
 import java.util.ArrayList;
@@ -24,50 +22,98 @@ public class Seminar1 {
         System.out.println("0.Iesire");
     }
 
-    private static void runMenu() {
-        printMenu();
+    private static boolean isPrime(int n) {
+        if (n < 2) return false;
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0) return false;
+        }
+        return true;
+    }
+
+    private static void eliminaPrime(List<Integer> numere) {
+        for (int i = 0; i < numere.size(); i++) {
+            if (isPrime(numere.get(i))) {
+                numere.remove(i);
+                i--;
+            }
+        }
+    }
+
+    private static void runMenu(List<Integer> numere) {
+
         Scanner sc = new Scanner(System.in);
-        String line = sc.nextLine();
+
 //        try{
 //
 //        }
 //        catch (Exception e){}
         while (true) {
+            printMenu();
+            String line = sc.nextLine();
+
             switch (line) {
                 case "1":
-                    //functie 1
+                    if (numere.isEmpty()) {
+                        System.out.println("Lista este goala.");
+                    } else {
+                        int minim = numere.getFirst();
+                        for (int x : numere) {
+                            if (x < minim) minim = x;
+                        }
+                        System.out.println("Minimul din lista este: " + minim);
+                    }
+                    break;
 
                 case "2":
-                    //functtie 2
-                case "0":
-                    return;
-                default:
-                    System.out.println("optiune inexistenta");
+                    eliminaPrime(numere);
+                    System.out.println("Lista dupa eliminarea numerelor prime: " + numere);
+                    break;
 
+                case "0":
+                    System.out.println("Program terminat.");
+                    return;
+
+                default:
+                    System.out.println("Optiune inexistenta.");
             }
         }
     }
-    private static List<Integer> parseArguments(String[] args){
-      List <Integer> numere = new ArrayList<Integer>();
-      for (String arg: args){
-          try{
-          numere.add(Integer.parseInt(arg));}
-          catch (Exception e){}
-      }
-      return numere;
+
+    private static List<Integer> parseArguments(String[] args) {
+        List<Integer> numere = new ArrayList<>();
+        for (String arg : args) {
+            try {
+                numere.add(Integer.parseInt(arg));
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return numere;
     }
 
     public static void main(String[] args) {
         System.out.println("Seminar 1");
 //        System.out.println(args[0]);
         Scanner sc = new Scanner(System.in);
-        Integer line = sc.nextInt();
-//        String argumente = sc. nextLine();
-        System.out.println(line);
-        System.out.println("Introduceti numerele separate prin spatiu: ");
-        String input = sc.nextLine();
-        String [] inputArray = input.split(" ");
-       List<Integer> list =  parseArguments(inputArray);
-        runMenu();
+        // exemplu citire numar intreg:
+//        Integer line = sc.nextInt();
+//        System.out.println(line);
+
+        List<Integer> list;
+
+        if (args.length > 0) {
+            System.out.println("Citire numere din linia de comanda: ");
+            list = parseArguments(args);
+        } else {
+            System.out.println("Introduceti numerele separate prin spatiu: ");
+            String input = sc.nextLine();
+            String[] inputArray = input.split(" ");
+
+            list = parseArguments(inputArray);
+        }
+
+        System.out.println("Lista initiala: " + list);
+
+        runMenu(list);
     }
 }
