@@ -56,7 +56,7 @@ public class Seminar1 {
                     if (numere.isEmpty()) {
                         System.out.println("Lista este goala.");
                     } else {
-                        int minim = numere.getFirst();
+                        int minim = numere.get(0); // TODO Arthur - aici era eroare de compilare
                         for (int x : numere) {
                             if (x < minim) minim = x;
                         }
