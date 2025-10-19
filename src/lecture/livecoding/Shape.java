@@ -54,6 +54,10 @@ public abstract class Shape {
         return id;
     }
 
+    public String getName() {
+        return name;
+    }
+
     /**
      * Avem o metoda pe care nu stim sau nu putem sa o implementam cu informatiile
      * avute => metoda va fi implementate de clasele derivate.
