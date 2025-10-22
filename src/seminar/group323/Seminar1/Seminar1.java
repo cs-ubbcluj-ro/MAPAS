@@ -1,4 +1,4 @@
-package seminar.group323;
+package seminar.group323.Seminar1;
 /*
     Se lucreaza cu o lista de numere. Aceste numere se pot citi in doua moduri:
         - din linia de comanda
