@@ -1,8 +1,5 @@
 package seminar.group321.seminar1;
 
-import seminar.Book;
-import seminar.group322.Seminar1;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 

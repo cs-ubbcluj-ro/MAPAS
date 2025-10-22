@@ -1,4 +1,4 @@
-package seminar;
+package seminar.group321.seminar1;
 
 import java.util.Objects;
 
