@@ -2,12 +2,12 @@ package seminar.group322;
 
 import seminar.group322.seminar2.domain.Employee;
 import seminar.group322.seminar2.domain.Employer;
-import seminar.group322.seminar2.domain.Person;
+import seminar.group322.seminar2.domain.RepositoryException;
 import seminar.group322.seminar2.repository.Repository;
 import seminar.group322.seminar2.service.EmployeeService;
 import seminar.group322.seminar2.ui.ConsoleUI;
 
-public class Main {
+public class Seminar2 {
     public static void main(String[] args) {
 
 
@@ -18,9 +18,14 @@ public class Main {
         boss.addEmployee(e2);
 
 
-        Repository repository = new Repository();
-        repository.addPerson(e1);
-        repository.addPerson(e2);
+        Repository<Employee> repository = new Repository<>();
+        try {
+            repository.add(e1);
+            repository.add(e2);
+            repository.add(e2);
+        } catch (RepositoryException exc) {
+            System.out.println(exc.getMessage());
+        }
 //        repository.addPerson(boss);
 //        System.out.println(repository);
 

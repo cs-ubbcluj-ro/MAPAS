@@ -1,8 +1,14 @@
 package seminar.group322.seminar2.domain;
 
+import java.io.Serializable;
+
 public class Employee extends Person {
 
-    private int salary;
+    // transient - atributul nu se salveaza in cadrul procesului de serializare
+    private transient int salary;
+
+    public Employee() {
+    }
 
     public Employee(int id, String name, int salary) {
         super(id, name);

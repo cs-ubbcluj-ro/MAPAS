@@ -1,8 +1,9 @@
 package lecture.livecoding;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public abstract class Shape {
+public abstract class Shape implements Serializable {
 
     // Toate obiectele de tip Shape (si subclasele lor) au acces la aceeasi
     // variabila instance_count

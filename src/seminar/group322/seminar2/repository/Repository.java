@@ -1,28 +1,30 @@
 package seminar.group322.seminar2.repository;
 
 import seminar.group322.seminar2.domain.Person;
+import seminar.group322.seminar2.domain.RepositoryException;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class Repository {
-    private ArrayList<Person> dataList = new ArrayList<>();
+public class Repository<E extends Person> implements Iterable<E> {
+    protected ArrayList<E> dataList = new ArrayList<>();
 
-    public void addPerson(Person p) {
+    public void add(E p) throws RepositoryException {
         if (p == null) {
             // Eroarea asta nu ar trebui sa apara in timpul executiei programului
             throw new NullPointerException();
         }
 
         if (find(p.getId()) != null) {
-            throw new IllegalArgumentException("Person already exists!");
+            throw new RepositoryException("Person already exists!");
         }
 
         this.dataList.add(p);
     }
 
 
-    public Person find(int id) {
-        for (Person p : dataList) {
+    public E find(int id) {
+        for (E p : dataList) {
             if (id == p.getId()) {
                 return p;
             }
@@ -35,5 +37,11 @@ public class Repository {
         return "Repository{" +
                 "dataList=" + dataList +
                 '}';
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        // FIXME Ar trebui returnat un iterator catre o copie a listei
+        return dataList.iterator();
     }
 }

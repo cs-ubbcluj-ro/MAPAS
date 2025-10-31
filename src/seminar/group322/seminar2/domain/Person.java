@@ -1,9 +1,14 @@
 package seminar.group322.seminar2.domain;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable {
     // O variabila final este constanta dupa prima atribuire
-    private final int id;
-    private final String name;
+    private int id;
+    private String name;
+
+    public Person() {
+    }
 
     public Person(int id, String name) {
         /*

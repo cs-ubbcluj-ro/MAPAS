@@ -23,13 +23,6 @@ public class MemoryRepository<E extends Shape> extends AbstractRepository<E> {
 
     @Override
     public Collection<E> getAll() {
-        List<E> aux = new ArrayList<>();
-        for (int i = 0; i <= data.size(); i++) {
-            aux.add(data.get(i));
-        }
-
-        return aux;
+        return new ArrayList<>(data);
     }
-
-
 }
