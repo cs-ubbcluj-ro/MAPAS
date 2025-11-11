@@ -1,6 +1,8 @@
 package seminar.group321.seminar2;
 
-public class IdObject {
+import java.io.Serializable;
+
+public class IdObject implements Serializable {
     // fiecare entitate din program trebuie sa aiba un id unic
     protected int id;
 

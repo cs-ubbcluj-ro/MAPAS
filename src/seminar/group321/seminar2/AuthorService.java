@@ -16,7 +16,7 @@ public class AuthorService {
 
     }
 
-    public void addAuthor(Author author) throws DuplicateIDException {
+    public void addAuthor(Author author) throws BookstoreException {
         this.authorRepo.add(author);
     }
 

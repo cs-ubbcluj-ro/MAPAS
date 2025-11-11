@@ -8,6 +8,7 @@ import java.util.List;
 public class MemoryRepository<E extends Shape> extends AbstractRepository<E> {
     @Override
     public void store(E element) throws RepositoryException {
+        // FIXME De adaugat verificarea pentru id-uri duplicate
         this.data.add(element);
     }
 

@@ -6,9 +6,9 @@ import java.util.Iterator;
 import java.util.Set;
 
 public class Repository<E> implements Iterable<E> {
-    private Set<E> data = new HashSet<>();
+    protected Set<E> data = new HashSet<>();
 
-    public void add(E element) throws DuplicateIDException {
+    public void add(E element) throws BookstoreException {
         // FIXME Check for duplicate id's !!!!
         if (data.add(element) == false) {
             throw new DuplicateIDException("Duplicate book Id!");

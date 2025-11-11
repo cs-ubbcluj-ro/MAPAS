@@ -25,6 +25,14 @@ public class Rectangle extends Shape {
         this.height = height;
     }
 
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
     @Override
     public float getArea() {
         return width * height;

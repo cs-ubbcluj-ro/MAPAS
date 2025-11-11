@@ -1,18 +1,22 @@
 package lecture.livecoding;
 
+import java.io.FileNotFoundException;
+
 public abstract class AbstractFileRepository<E extends Shape> extends MemoryRepository<E> {
 
     protected String fileName;
 
+    protected ShapeConverter<E> converter;
+
     public AbstractFileRepository(String fileName) {
         super();
         this.fileName = fileName;
-        try {
-            readFile();
-        } catch (RepositoryException e) {
-            // We rethrow this
-            throw new RuntimeException(e);
-        }
+//        try {
+//            readFile();
+//        } catch (RepositoryException e) {
+//            // We rethrow this
+//            throw new RuntimeException(e);
+//        }
     }
 
     @Override
