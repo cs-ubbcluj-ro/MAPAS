@@ -25,6 +25,7 @@ public class Seminar3 {
 
         Employee e1 = new Employee(1000, "Popescu Marcel", 12345);
         Employee e2 = new Employee(1001, "Marian Ana", 33456);
+        Employee e3 = new Employee(1002, "Marcel Marius", 12000);
         Employer boss = new Employer(2000, "Pop Dan");
         boss.addEmployee(e1);
         boss.addEmployee(e2);
@@ -46,17 +47,18 @@ public class Seminar3 {
 //        System.out.println(employee);
 
 
-//        Repository<Employee> repoBinary = new BinaryFileRepository<>("employees.bin");
+        Repository<Employee> repoBinary = new BinaryFileRepository<>("employees.bin");
 //        System.out.println(repoBinary.toString());
 
-        Repository<Employee> repoText = new EmployeeTextFileRepository("employees.txt");
-//        repoText.add(e1);
-//        repoText.add(e2);
+//        Repository<Employee> repoText = new EmployeeTextFileRepository("employees.txt");
+        repoBinary.add(e1);
+        repoBinary.add(e2);
+        repoBinary.add(e3);
 
 //        System.out.println(repoText);
-        for (Employee e : repoText) {
-            System.out.println(e);
-        }
+//        for (Employee e : repoText) {
+//            System.out.println(e);
+//        }
 
 
 //        try {

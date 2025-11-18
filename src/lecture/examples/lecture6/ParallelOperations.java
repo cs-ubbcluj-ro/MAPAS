@@ -105,10 +105,10 @@ public class ParallelOperations {
          * Operations are carried out in parallel, using the StreamSupport class that provides Java 8 stream
          * functionalities.
          */
-        t1 = System.currentTimeMillis();
-        ParallelOperations.processParallelyWithStreamSupport();
-        t2 = System.currentTimeMillis();
-        System.out.println("Process using the StreamSupport class: " + (t2 - t1) + " miliseconds");
+//        t1 = System.currentTimeMillis();
+//        ParallelOperations.processParallelyWithStreamSupport();
+//        t2 = System.currentTimeMillis();
+//        System.out.println("Process using the StreamSupport class: " + (t2 - t1) + " miliseconds");
     }
 
 }

@@ -4,7 +4,7 @@ import org.sqlite.SQLiteDataSource;
 
 import java.sql.*;
 
-public class SQLSquareRepository extends MemoryRepository<Square> {
+public class SQLSquareRepository extends MemoryRepository<Square> implements AutoCloseable {
 
     private static final String JDBC_URL =
             "jdbc:sqlite:src/lecture/livecoding/square.db";
@@ -45,7 +45,7 @@ public class SQLSquareRepository extends MemoryRepository<Square> {
     private void createSchema() {
         try {
             try (final Statement stmt = conn.createStatement()) {
-                stmt.executeUpdate("CREATE TABLE IF NOT EXISTS square(id int, name varchar(100), width int);");
+                stmt.executeUpdate("CREATE TABLE IF NOT EXISTS square(id int, name varchar(100), salary int);");
             }
         } catch (SQLException e) {
             System.err.println("[ERROR] createSchema : " + e.getMessage());
@@ -64,6 +64,17 @@ public class SQLSquareRepository extends MemoryRepository<Square> {
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new RepositoryException(e);
+        }
+    }
+
+    @Override
+    public void close() {
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }
