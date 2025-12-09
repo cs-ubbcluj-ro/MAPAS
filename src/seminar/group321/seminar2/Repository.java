@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class Repository<E> implements Iterable<E> {
+public class Repository<E> implements Iterable<E>, AutoCloseable {
     protected Set<E> data = new HashSet<>();
 
     public void add(E element) throws BookstoreException {
@@ -43,5 +43,10 @@ public class Repository<E> implements Iterable<E> {
         Ce inseamna sa iteram o colectie? -> Parcurgem fiecare element al colectiei exact o data.
          */
         return this.data.iterator();
+    }
+
+    @Override
+    public void close() throws Exception {
+
     }
 }
