@@ -18,12 +18,12 @@ public class Lecture7 {
 
         System.out.println(Settings.getInstance() == Settings.getInstance());
 
-        System.out.println(settings.getRepoType());
+        System.out.println(settings.getRepository());
         System.out.println(settings.getRepoFile());
 
 //        IRepository repo;
 
-        if ("sql".equals(settings.getRepoType())) {
+        if ("sql".equals(settings.getRepository())) {
 
             try (var repo = new SQLSquareRepository()) {
 

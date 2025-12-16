@@ -23,4 +23,9 @@ public class Square extends Rectangle {
         Square shape = (Square) o;
         return getId() == shape.getId() && Objects.equals(getName(), shape.getName());
     }
+
+    @Override
+    public String toString() {
+        return getId() + " name: " + getName() + " side: " + getWidth();
+    }
 }
