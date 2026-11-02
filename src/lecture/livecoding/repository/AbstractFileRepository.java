@@ -1,6 +1,7 @@
 package lecture.livecoding.repository;
 
 import lecture.livecoding.domain.Shape;
+import lecture.livecoding.util.ShapeConverter;
 
 public abstract class AbstractFileRepository<E extends Shape> extends MemoryRepository<E> {
 
@@ -17,14 +18,7 @@ public abstract class AbstractFileRepository<E extends Shape> extends MemoryRepo
 
     public AbstractFileRepository(String fileName) {
         this.fileName = fileName;
-        try {
-            readFile();
-        } catch (RepositoryException e) {
-            // FIXME Replace with something robust
-            throw new RuntimeException(e);
-        }
     }
-
 
     @Override
     public void store(E element) throws RepositoryException {

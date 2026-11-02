@@ -8,6 +8,11 @@ public class BinaryFileRepository<E extends Shape> extends AbstractFileRepositor
 
     public BinaryFileRepository(String fileName) {
         super(fileName);
+        try {
+            readFile();
+        } catch (RepositoryException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
