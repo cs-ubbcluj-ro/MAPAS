@@ -1,8 +1,9 @@
 package lecture.livecoding.domain;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public abstract class Shape {
+public abstract class Shape implements Serializable {
 
     private static int numberOfObjects = 0;
 

@@ -1,9 +1,12 @@
 package lecture.livecoding.domain;
 
+import java.io.Serializable;
+
 public class Square extends Rectangle {
     public Square(int id, String name, int side) {
         super(id, name, side, side);
     }
+
 
     @Override
     public String toString() {
