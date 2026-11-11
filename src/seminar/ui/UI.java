@@ -41,11 +41,11 @@ public class UI {
 
     private void displayAllBook(Comparator<Book> comparator) {
         // Initializam lista cu toate cartile din repository
-        ArrayList<Book> bookList = new ArrayList<>(service.getAll());
-        bookList.sort(comparator);
-
-        for (Book book : bookList) {
-            System.out.println(book);
-        }
+//        ArrayList<Book> bookList = new ArrayList<>(service.getAll());
+//        bookList.sort(comparator);
+//
+//        for (Book book : bookList) {
+//            System.out.println(book);
+//        }
     }
 }

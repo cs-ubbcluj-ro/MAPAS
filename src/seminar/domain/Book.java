@@ -2,7 +2,7 @@ package seminar.domain;
 
 import java.util.Objects;
 
-public class Book {
+public class Book extends LibraryObject {
 
     /*
     Generarea codului sursa folosind IDE-ul
@@ -15,21 +15,20 @@ public class Book {
         -> Getters
      */
 
-    protected int id;
-    protected String author;
+    protected Author author;
     protected String title;
 
-    public Book(int id, String author, String title) {
-        this.id = id;
-        this.author = author;
+    public Book(int id, String title) {
+        super(id);
         this.title = title;
     }
 
-    public int getId() {
-        return id;
+
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
@@ -46,12 +45,12 @@ public class Book {
         if (o == null || getClass() != o.getClass()) return false;
 
         Book book = (Book) o;
-        return id == book.id && Objects.equals(author, book.author) && Objects.equals(title, book.title);
+        return getId() == book.getId() && Objects.equals(author, book.author) && Objects.equals(title, book.title);
     }
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result = getId();
         result = 31 * result + Objects.hashCode(author);
         result = 31 * result + Objects.hashCode(title);
         return result;
@@ -60,8 +59,8 @@ public class Book {
     @Override
     public String toString() {
         return "Book{" +
-                "id=" + id +
-                ", author='" + author + '\'' +
+                "id=" + getId() +
+
                 ", title='" + title + '\'' +
                 '}';
     }
